@@ -3,15 +3,16 @@ class Complement
 
   def self.of_dna(strand)
     strand.chars.collect! do |nucleotide|
-      if nucleotide == 'G'
+      case nucleotide
+      when 'G'
         'C'
-      elsif nucleotide == 'C'
+      when 'C'
         'G'
-      elsif nucleotide == 'T'
+      when 'T'
         'A'
-      elsif nucleotide =='A'
+      when 'A'
         'U'
-      elsif nucleotide != ('C' || 'G' || 'T' || 'A')
+      else
         raise ArgumentError
       end
     end.join
@@ -19,15 +20,16 @@ class Complement
 
   def self.of_rna(strand)
     strand.chars.collect! do |nucleotide|
-      if nucleotide == 'C'
+      case nucleotide
+      when 'C'
         'G'
-      elsif nucleotide == 'G'
+      when 'G'
         'C'
-      elsif nucleotide == 'U'
+      when 'U'
         'A'
-      elsif nucleotide == 'A'
+      when 'A'
         'T'
-      elsif nucleotide != ('C' || 'G' || 'U' || 'A')
+      else
         raise ArgumentError
       end
     end.join
