@@ -5,8 +5,7 @@ class Robot
   def initialize
     letters = Array.new(2){ LETTER_BANK.sample }.join
     numbers = Array.new(3){ NUMBER_BANK.sample }.join
-    name = letters + numbers
-    @name = name
+    @name = letters + numbers
   end
 
   def name
