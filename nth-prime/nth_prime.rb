@@ -7,7 +7,7 @@ class Prime
 
     while @primes.length != nth_prime
       prime_check
-      @test_number = @test_number + 2
+      @test_number += 2
     end
     @primes.last
   end
@@ -16,7 +16,7 @@ class Prime
     counter = 0
     @primes.each do |prime|
       if @test_number % prime != 0
-        counter = counter + 1
+        counter += 1
       end
     end
     @primes.push(@test_number) if counter == @primes.length
