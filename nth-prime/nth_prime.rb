@@ -13,7 +13,9 @@ class Prime
   end
 
   def prime_check(test_number)
+    ceiling = Math.sqrt(test_number)
     @primes.each do |prime|
+      break if prime > ceiling
       return if test_number % prime == 0
     end
     @primes << test_number
