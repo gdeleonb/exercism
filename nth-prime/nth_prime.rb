@@ -13,13 +13,10 @@ class Prime
   end
 
   def prime_check(test_number)
-    counter = 0
     @primes.each do |prime|
-      if test_number % prime != 0
-        counter += 1
-      end
+      return if test_number % prime == 0
     end
-    @primes.push(test_number) if counter == @primes.length
+    @primes << test_number
   end
 
 end
