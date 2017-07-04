@@ -4,11 +4,11 @@ class Squares
   end
 
   def square_of_sums
-    (1..@number).inject(:+) ** 2
+    (@number * (@number + 1) / 2)**2
   end
 
   def sum_of_squares
-    (1..@number).inject(0) { |sum_of_squares, current_number| sum_of_squares + (current_number ** 2) }
+    @number * (@number + 1) * (2 * @number + 1) / 6
   end
 
   def difference
