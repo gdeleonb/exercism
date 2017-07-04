@@ -4,9 +4,8 @@ class Sieve
     if limit >= 2
       range = (2..limit).to_a
       until range.empty?
-        prime = range.shift
-        @primes.push(prime)
-        range.delete_if { |num| num % prime == 0 }
+        @primes << range.shift
+        range.delete_if { |num| num % @primes.last == 0 }
       end
     end
     @primes
