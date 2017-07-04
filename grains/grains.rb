@@ -1,9 +1,11 @@
 class Grains
+  TOTAL_SQUARES = 64
   def self.square(square)
-    1 * 2**(square - 1)
+    raise "Invalid input (1 <= square <= 64)" if square < 1 || square > 64
+    2**(square - 1)
   end
 
   def self.total
-    (1..64).inject { |sum, number| sum + 1 * 2**(number - 1) }
+    2**TOTAL_SQUARES - 1
   end
 end
