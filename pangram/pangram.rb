@@ -1,6 +1,6 @@
 class Pangram
   def self.pangram?(phrase)
-    phrase.empty? ? false : phrase.downcase.gsub(/[^a-z]/, '').split('').uniq.length == 26
+    !phrase.empty? && phrase.downcase.gsub(/[^a-z]/, '').chars.uniq.length == 26
   end
 end
 
