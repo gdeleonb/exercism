@@ -1,6 +1,8 @@
 class Pangram
+  LETTERS_IN_ALPHABET = 26
+
   def self.pangram?(phrase)
-    !phrase.empty? && phrase.downcase.gsub(/[^a-z]/, '').chars.uniq.length == 26
+    phrase.downcase.gsub(/[^a-z]/, '').chars.uniq.length == LETTERS_IN_ALPHABET
   end
 end
 
