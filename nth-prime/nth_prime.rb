@@ -1,11 +1,10 @@
 class Prime
-
-  def nth(nth_prime)
-    raise ArgumentError unless nth_prime > 0
+  def nth(n)
+    raise ArgumentError unless n > 0
     @primes = [2]
     test_number = 3
 
-    while @primes.length != nth_prime
+    while @primes.length < n
       prime_check(test_number)
       test_number += 2
     end
@@ -20,5 +19,8 @@ class Prime
     end
     @primes << test_number
   end
+end
 
+module BookKeeping
+  VERSION = 1
 end
