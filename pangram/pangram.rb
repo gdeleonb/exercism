@@ -1,8 +1,13 @@
 class Pangram
-  LETTERS_IN_ALPHABET = 26
+  ALPHABET = [
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+  ]
 
   def self.pangram?(phrase)
-    phrase.downcase.gsub(/[^a-z]/, '').chars.uniq.length == LETTERS_IN_ALPHABET
+    phrase.downcase.
+           gsub(/[^[#{ALPHABET.join(',')}]]/.to_regexp, '').
+           chars.uniq.length == ALPHABET.length
   end
 end
 
