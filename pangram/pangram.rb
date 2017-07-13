@@ -3,7 +3,7 @@ class Pangram
 
   def self.pangram?(phrase)
     phrase.downcase.
-           gsub(/[^[#{ALPHABET.join(',')}]]/, '').
+           gsub(/[^#{ALPHABET.join('')}]/, '').
            chars.uniq.length == ALPHABET.length
   end
 end
