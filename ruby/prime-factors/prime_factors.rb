@@ -2,6 +2,7 @@ require 'prime'
 
 class PrimeFactors
   def self.for(integer)
+    raise ArgumentError if integer.class != Integer
     primes = Prime.each
     prime = primes.next
     factors = []
