@@ -20,14 +20,12 @@ class School
   end
 
   def students_by_grade
+    output = []
     keys = @students.keys.sort
-    out = keys.map do |key|
-      if !@students[key].empty?
-        {:grade => key, :students => @students[key]}
-      end
+    keys.each do |key|
+      output.push({:grade => key, :students => @students[key]}) if !@students[key].empty?
     end
-    out.delete(nil)
-    out
+    output
   end
 end
 
