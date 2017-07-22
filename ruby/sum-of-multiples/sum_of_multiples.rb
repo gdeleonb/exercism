@@ -14,7 +14,7 @@ class SumOfMultiples
         end
       end
     end
-    return multiples.reduce(:+)
+    multiples.reduce(:+)
   end
 end
 
