@@ -8,7 +8,7 @@ class Binary
         decimal += 2**index
       end
     end
-    return decimal
+    decimal
   end
 end
 
