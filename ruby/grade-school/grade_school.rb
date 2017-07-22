@@ -1,7 +1,6 @@
 class School
   def initialize
-    @students = Hash.new
-    (1..8).each { |grade| @students[grade] = [] }
+    @students = Hash.new { |hash, key| hash[key] = [] }
   end
 
   def students(grade)
@@ -20,12 +19,7 @@ class School
   end
 
   def students_by_grade
-    output = []
-    keys = @students.keys.sort
-    keys.each do |key|
-      output.push({:grade => key, :students => @students[key]}) if !@students[key].empty?
-    end
-    output
+    @students.sort.map { |key, val| {grade: key, students: val} }
   end
 end
 
