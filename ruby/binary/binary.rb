@@ -4,9 +4,7 @@ class Binary
 
     decimal = 0
     binary.chars.reverse.each_with_index do |digit, index|
-      if digit == "1"
-        decimal += 2**index
-      end
+        decimal += digit.to_i * 2**index
     end
     decimal
   end
