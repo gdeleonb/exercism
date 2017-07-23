@@ -1,18 +1,16 @@
 class Series
   def initialize(series)
-    @series = series.chars
+    @series = series
   end
 
   def slices(length)
     raise ArgumentError if length > @series.length
+    copy = @series.dup
     output = []
-    index = 0
-    until index + length > @series.length
-      tmp = ""
-      @series[index..(index+length-1)].each {|e| tmp << e}
-      output.push(tmp)
-      index += 1
+    until copy.length < length
+      output << copy.slice(0, length)
+      copy[0] = ''
     end
-    return output
+    output
   end
 end
