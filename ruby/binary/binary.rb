@@ -1,12 +1,8 @@
 class Binary
   def self.to_decimal(binary)
-    raise ArgumentError if binary.match(/[^01]/)
+    raise ArgumentError if binary.match?(/[^01]/)
 
-    decimal = 0
-    binary.chars.reverse.each_with_index do |digit, index|
-        decimal += digit.to_i * 2**index
-    end
-    decimal
+    binary.each_char.reduce(0) { |decimal, bit| decimal << 1 | bit.to_i }
   end
 end
 
