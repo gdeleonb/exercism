@@ -1,6 +1,6 @@
 class Array
   def accumulate(&block)
-    return self.to_enum if !block
+    return self.to_enum unless block
 
     self.map { |elem| block.call(elem)}
   end
