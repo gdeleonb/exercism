@@ -2,7 +2,11 @@ class Array
   def accumulate(&block)
     return self.to_enum unless block
 
-    self.map { |elem| block.call(elem)}
+    output = []
+    self.each do |elem|
+      output.push(block.call(elem))
+    end
+    output
   end
 end
 
