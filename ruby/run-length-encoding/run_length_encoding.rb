@@ -1,9 +1,8 @@
 class RunLengthEncoding
   def self.encode(input)
-    encoding = input.chars.chunk { |char| char }.
-      map { |char, chars| [chars.length, char] }.flatten
-    encoding.delete(1)
-    encoding.join
+    input.chars.chunk{ |char| char }.map do |char, reps|
+      reps.length == 1 ? char : reps.length.to_s + char
+    end.join
   end
 
   def self.decode(input)
