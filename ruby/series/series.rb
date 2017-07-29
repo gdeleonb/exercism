@@ -3,14 +3,11 @@ class Series
     @series = series
   end
 
-  def slices(length)
-    raise ArgumentError if length > @series.length
-    copy = @series.dup
-    output = []
-    until copy.length < length
-      output << copy.slice(0, length)
-      copy[0] = ''
+  def slices(slice_length)
+    raise ArgumentError if slice_length > @series.length
+
+    (0..@series.length-slice_length).map do |n|
+      @series.slice(n, slice_length)
     end
-    output
   end
 end
